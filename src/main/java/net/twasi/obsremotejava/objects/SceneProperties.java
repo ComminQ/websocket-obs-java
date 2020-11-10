@@ -74,6 +74,13 @@ public class SceneProperties {
 			this.alignement = alignement;
 		}
 
+		@Override
+		public String toString() {
+			return "Position [x=" + x + ", y=" + y + ", alignement=" + alignement + "]";
+		}
+
+		
+		
 	}
 
 	public static class Scale {
@@ -105,6 +112,13 @@ public class SceneProperties {
 		public void setY(double y) {
 			this.y = y;
 		}
+
+		@Override
+		public String toString() {
+			return "Scale [x=" + x + ", y=" + y + "]";
+		}
+		
+		
 
 	}
 
@@ -158,6 +172,13 @@ public class SceneProperties {
 			this.bottom = bottom;
 		}
 
+		@Override
+		public String toString() {
+			return "Crop [top=" + top + ", right=" + right + ", left=" + left + ", bottom=" + bottom + "]";
+		}
+		
+		
+
 	}
 
 	public static class Bounds {
@@ -210,6 +231,13 @@ public class SceneProperties {
 		public void setY(double y) {
 			this.y = y;
 		}
+
+		@Override
+		public String toString() {
+			return "Bounds [type=" + type + ", alignement=" + alignement + ", x=" + x + ", y=" + y + "]";
+		}
+		
+		
 
 	}
 
@@ -269,6 +297,14 @@ public class SceneProperties {
 		this.bounds = bounds;
 	}
 
+	@Override
+	public String toString() {
+		return "SceneProperties [name=" + name + ", position=" + position + ", rotation=" + rotation + ", scale=" + scale
+			+ ", crop=" + crop + ", visible=" + visible + ", bounds=" + bounds + "]";
+	}
+
+	
+	
 	
 	
 	
