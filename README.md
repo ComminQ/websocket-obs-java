@@ -61,6 +61,10 @@ A list of supported requests and events can be found in the corresponding enum c
 A description of every request and event can be found in the plugin's [**Protocol.MD**](https://github.com/Palakis/obs-websocket/blob/4.x-current/docs/generated/protocol.md) file.
 
 ---
+## Protocol References
+Protocol reference can be found [**here**](https://gist.github.com/lee-brown/70e6014a903dfea9e2dfe7e35fc8ab88#scene-items)
+
+---
 ## Examples
 
 Examples can be found [**here**](src/test/java/net/twasi/obsremotejava/test/OBSRemoteControllerTest.java). Just uncomment the requests you want to test or copy.
