@@ -17,6 +17,7 @@ public class GetSceneItemPropertiesRequest extends BaseRequest {
 
         this.scene = scene;
         this.item = source;
+        
         com.messageTypes.put(getMessageId(), GetSceneItemPropertiesResponse.class);
     }
     

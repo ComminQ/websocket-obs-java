@@ -25,6 +25,7 @@ import net.twasi.obsremotejava.requests.GetCurrentScene.GetCurrentSceneResponse;
 import net.twasi.obsremotejava.requests.GetPreviewScene.GetPreviewSceneRequest;
 import net.twasi.obsremotejava.requests.GetPreviewScene.GetPreviewSceneResponse;
 import net.twasi.obsremotejava.requests.GetSceneItemProperties.GetSceneItemPropertiesRequest;
+import net.twasi.obsremotejava.requests.GetSceneItemProperties.GetSceneItemPropertiesResponse;
 import net.twasi.obsremotejava.requests.GetSceneList.GetSceneListRequest;
 import net.twasi.obsremotejava.requests.GetSceneList.GetSceneListResponse;
 import net.twasi.obsremotejava.requests.GetSourceSettings.GetSourceSettingsRequest;
@@ -452,7 +453,7 @@ public class OBSCommunicator {
     public void getSceneItemProperties(String scene, String source, Callback callback) {
         GetSceneItemPropertiesRequest request = new GetSceneItemPropertiesRequest(this, scene, source);
         session.getRemote().sendStringByFuture(new Gson().toJson(request));
-        callbacks.put(SetSceneItemPropertiesResponse.class, callback);
+        callbacks.put(GetSceneItemPropertiesResponse.class, callback);
     }
 
     public void getTransitionList(Callback callback) {
@@ -582,7 +583,7 @@ public class OBSCommunicator {
         SetPreviewSceneRequest request = new SetPreviewSceneRequest(this, name);
 
         session.getRemote().sendStringByFuture(new Gson().toJson(request));
-        callbacks.put(SetPreviewSceneResponse.class, callback);
+        callbacks.put(SetPreviewSceneResponse.class, callback); 
 
     }
 
