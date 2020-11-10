@@ -450,8 +450,7 @@ public class OBSCommunicator {
 
     public void getSceneItemProperties(String scene, String source, Callback callback) {
         GetSceneItemPropertiesRequest request = new GetSceneItemPropertiesRequest(this, scene, source);
-        System.out.println(new Gson().toJson(request));
-        session.getRemote().sendStringByFuture(new Gson().toJson(request));
+        session.getRemote().sendStringByFuture(request.getSpecialJson().getAsString());
         callbacks.put(SetSceneItemPropertiesResponse.class, callback);
     }
 
@@ -469,7 +468,6 @@ public class OBSCommunicator {
 
     public void getSourceSettings(String sourceName, Callback callback) {
         GetSourceSettingsRequest request = new GetSourceSettingsRequest(this, sourceName);
-        System.out.println(new Gson().toJson(request));
         session.getRemote().sendStringByFuture(new Gson().toJson(request));
         callbacks.put(GetSourceSettingsResponse.class, callback);
     }
