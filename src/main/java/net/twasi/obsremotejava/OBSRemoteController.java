@@ -3,6 +3,7 @@ package net.twasi.obsremotejava;
 import net.twasi.obsremotejava.callbacks.Callback;
 import net.twasi.obsremotejava.callbacks.ErrorCallback;
 import net.twasi.obsremotejava.callbacks.StringCallback;
+import net.twasi.obsremotejava.objects.SceneProperties;
 import net.twasi.obsremotejava.objects.throwables.OBSResponseError;
 import org.eclipse.jetty.websocket.api.Session;
 import org.eclipse.jetty.websocket.client.ClientUpgradeRequest;
@@ -207,8 +208,8 @@ public class OBSRemoteController {
         });
     }
 
-    public void setSourceVisibility(String scene, String source, boolean visibility, Callback callback) {
-        communicator.setSourceVisiblity(scene, source, visibility, callback);
+    public void setSourceVisibility(String scene, String source, SceneProperties props, Callback callback) {
+        communicator.setSourceVisiblity(scene, source, props, callback);
     }
 
     public void getSceneItemProperties(String scene, String source, Callback callback) {

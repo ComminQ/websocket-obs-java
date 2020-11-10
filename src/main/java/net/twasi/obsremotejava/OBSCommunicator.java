@@ -12,6 +12,7 @@ import net.twasi.obsremotejava.events.responses.ScenesChangedResponse;
 import net.twasi.obsremotejava.events.responses.SwitchScenesResponse;
 import net.twasi.obsremotejava.events.responses.TransitionBeginResponse;
 import net.twasi.obsremotejava.events.responses.TransitionEndResponse;
+import net.twasi.obsremotejava.objects.SceneProperties;
 import net.twasi.obsremotejava.objects.throwables.InvalidResponseTypeError;
 import net.twasi.obsremotejava.requests.Authenticate.AuthenticateRequest;
 import net.twasi.obsremotejava.requests.Authenticate.AuthenticateResponse;
@@ -441,8 +442,8 @@ public class OBSCommunicator {
         callbacks.put(SetCurrentTransitionResponse.class, callback);
     }
 
-    public void setSourceVisiblity(String scene, String source, boolean visibility, Callback callback) {
-        SetSceneItemPropertiesRequest request = new SetSceneItemPropertiesRequest(this, scene, source, visibility);
+    public void setSourceVisiblity(String scene, String source, SceneProperties props, Callback callback) {
+        SetSceneItemPropertiesRequest request = new SetSceneItemPropertiesRequest(this, scene, source, props);
         System.out.println(new Gson().toJson(request));
         session.getRemote().sendStringByFuture(new Gson().toJson(request));
         callbacks.put(SetSceneItemPropertiesResponse.class, callback);
@@ -450,7 +451,7 @@ public class OBSCommunicator {
 
     public void getSceneItemProperties(String scene, String source, Callback callback) {
         GetSceneItemPropertiesRequest request = new GetSceneItemPropertiesRequest(this, scene, source);
-        session.getRemote().sendStringByFuture(request.getSpecialJson().getAsString());
+        session.getRemote().sendStringByFuture(new Gson().toJson(request));
         callbacks.put(SetSceneItemPropertiesResponse.class, callback);
     }
 
