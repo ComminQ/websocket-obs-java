@@ -1,14 +1,5 @@
 package net.twasi.obsremotejava;
 
-import net.twasi.obsremotejava.callbacks.Callback;
-import net.twasi.obsremotejava.callbacks.ErrorCallback;
-import net.twasi.obsremotejava.callbacks.StringCallback;
-import net.twasi.obsremotejava.objects.SceneProperties;
-import net.twasi.obsremotejava.objects.throwables.OBSResponseError;
-import org.eclipse.jetty.websocket.api.Session;
-import org.eclipse.jetty.websocket.client.ClientUpgradeRequest;
-import org.eclipse.jetty.websocket.client.WebSocketClient;
-
 import java.net.ConnectException;
 import java.net.URI;
 import java.util.Map;
@@ -16,11 +7,24 @@ import java.util.concurrent.ExecutionException;
 import java.util.concurrent.Future;
 import java.util.concurrent.TimeUnit;
 
+import org.eclipse.jetty.websocket.api.Session;
+import org.eclipse.jetty.websocket.client.ClientUpgradeRequest;
+import org.eclipse.jetty.websocket.client.WebSocketClient;
+
+import lombok.Getter;
+import net.twasi.obsremotejava.callbacks.Callback;
+import net.twasi.obsremotejava.callbacks.ErrorCallback;
+import net.twasi.obsremotejava.callbacks.StringCallback;
+import net.twasi.obsremotejava.objects.SceneProperties;
+import net.twasi.obsremotejava.objects.throwables.OBSResponseError;
+
 public class OBSRemoteController {
+	
     private String address;
     private final boolean debug;
     private final OBSCommunicator communicator;
     private final String password;
+    @Getter
     private final WebSocketClient client;
 
     private StringCallback onConnectionFailed;
@@ -208,8 +212,8 @@ public class OBSRemoteController {
         });
     }
 
-    public void setSourceVisibility(String scene, String source, SceneProperties props, Callback callback) {
-        communicator.setSourceVisiblity(scene, source, props, callback);
+    public void setSceneProperties(String scene, String source, SceneProperties props, Callback callback) {
+        communicator.setSceneProperties(scene, source, props, callback);
     }
 
     public void getSceneItemProperties(String scene, String source, Callback callback) {

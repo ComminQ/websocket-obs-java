@@ -443,9 +443,8 @@ public class OBSCommunicator {
         callbacks.put(SetCurrentTransitionResponse.class, callback);
     }
 
-    public void setSourceVisiblity(String scene, String source, SceneProperties props, Callback callback) {
+    public void setSceneProperties(String scene, String source, SceneProperties props, Callback callback) {
         SetSceneItemPropertiesRequest request = new SetSceneItemPropertiesRequest(this, scene, source, props);
-        System.out.println(new Gson().toJson(request));
         session.getRemote().sendStringByFuture(new Gson().toJson(request));
         callbacks.put(SetSceneItemPropertiesResponse.class, callback);
     }

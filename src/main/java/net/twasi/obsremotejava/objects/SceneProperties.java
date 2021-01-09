@@ -36,8 +36,8 @@ public class SceneProperties {
 	
 	public static class Position {
 
-		private int x;
-		private int y;
+		private double x;
+		private double y;
 		private int alignement;
 
 		public Position() {
@@ -50,7 +50,7 @@ public class SceneProperties {
 			this.alignement = alignement;
 		}
 
-		public int getX() {
+		public double getX() {
 			return this.x;
 		}
 
@@ -58,7 +58,7 @@ public class SceneProperties {
 			this.x = x;
 		}
 
-		public int getY() {
+		public double getY() {
 			return this.y;
 		}
 
